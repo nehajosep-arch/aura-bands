@@ -1,35 +1,56 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <main className="min-h-screen w-full overflow-x-hidden bg-[#F8F5EF]">
 
       {/* Navbar */}
-      <nav className="flex justify-between items-center px-4 md:px-8 py-4">
-        <Image
-          src="/images/logo.png"
-          alt="Aurabands Logo"
-          width={120}
-          height={70}
-        />
-       <div className="hidden md:flex gap-6 text-[#6B4C57] font-medium items-center">
-          <a href="#">Home</a>
+<nav className="flex items-center justify-between px-4 py-4 relative">
+  <Image
+    src="/images/logo.png"
+    alt="Aura Bands Logo"
+    width={120}
+    height={70}
+  />
 
-          <a href="#shop">Shop</a>
+  {/* Desktop Menu */}
+  <div className="hidden md:flex gap-6 text-[#6B4C57] font-medium items-center">
+    <a href="#">Home</a>
+    <a href="#shop">Shop</a>
+    <a href="#contact">Contact</a>
+    <Link href="/cart" className="bg-[#D9B24C] px-4 py-2 rounded-full">
+      🛒 Cart
+    </Link>
+  </div>
 
-          <a href="#contact">Contact</a>
+  {/* Mobile Button */}
+  <button
+    className="md:hidden text-3xl"
+    onClick={() => setMenuOpen(!menuOpen)}
+  >
+    ☰
+  </button>
 
-          <Link
-            href="/cart"
-            className="bg-[#D9B24C] px-5 py-2 rounded-full font-semibold"
-          >
-            🛒 Cart
-          </Link>
-        </div>
-      </nav>
+  {/* Mobile Menu */}
+  {menuOpen && (
+    <div className="absolute top-20 left-0 w-full bg-[#F8F5EF] shadow-lg rounded-xl p-4 md:hidden z-50">
+      <div className="flex flex-col gap-4 text-[#6B4C57] font-medium">
+        <a href="#" onClick={() => setMenuOpen(false)}>Home</a>
+        <a href="#shop" onClick={() => setMenuOpen(false)}>Shop</a>
+        <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+        <Link href="/cart" onClick={() => setMenuOpen(false)}>
+          🛒 Cart
+        </Link>
+      </div>
+    </div>
+  )}
+</nav>
 
       {/* Hero */}
       <section className="grid md:grid-cols-2 gap-10 px-8 py-12 items-center">
