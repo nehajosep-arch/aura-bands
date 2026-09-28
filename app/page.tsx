@@ -39,7 +39,7 @@ export default function Home() {
 
   {/* Mobile Menu */}
   {menuOpen && (
-    <div className="absolute top-20 left-0 w-full bg-[#F8F5EF] shadow-lg rounded-xl p-4 md:hidden z-50">
+    <div className="absolute top-20 left-0 w-full bg-[#C08ACD] shadow-lg rounded-xl p-4 md:hidden z-50">
       <div className="flex flex-col gap-4 text-[#6B4C57] font-medium">
         <a href="#" onClick={() => setMenuOpen(false)}>Home</a>
         <a href="#shop" onClick={() => setMenuOpen(false)}>Shop</a>
