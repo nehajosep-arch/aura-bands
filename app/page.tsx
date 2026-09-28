@@ -5,18 +5,17 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#F8F5EF]">
+    <main className="min-h-screen w-full overflow-x-hidden bg-[#F8F5EF]">
 
       {/* Navbar */}
-      <nav className="flex justify-between items-center px-8 py-5">
+      <nav className="flex justify-between items-center px-4 md:px-8 py-4">
         <Image
           src="/images/logo.png"
           alt="Aurabands Logo"
-          width={370}
-          height={270}
+          width={120}
+          height={70}
         />
-
-        <div className="flex gap-6 text-[#6B4C57] font-medium items-center">
+       <div className="hidden md:flex gap-6 text-[#6B4C57] font-medium items-center">
           <a href="#">Home</a>
 
           <a href="#shop">Shop</a>
